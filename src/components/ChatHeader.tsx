@@ -7,6 +7,7 @@ import {
 import PushPinIcon from "@mui/icons-material/PushPin";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import React from "react";
+import "./ChatHeader.css"
 
 type Props = {
   channelName: string | null;

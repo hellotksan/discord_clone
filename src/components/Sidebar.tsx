@@ -13,6 +13,7 @@ import {
   DocumentReference,
 } from "firebase/firestore";
 import useFirebase from "../hooks/useFirebase";
+import "./Sidebar.css"
 
 const Sidebar = () => {
   const user = useAppSelector((state) => state.user.user);
@@ -38,7 +39,6 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebarLeft">
-        {/* discrodIcon */}
         <div className="serverIcon">
           <img src="./discordLogo.png" alt="" />
         </div>
@@ -70,9 +70,6 @@ const Sidebar = () => {
                 key={channel.id}
               />
             ))}
-            {/* <SidebarChannle id="1" channel="sample" />
-            <SidebarChannle id="1" channel="sample" />
-            <SidebarChannle id="1" channel="sample" /> */}
           </div>
 
           <div className="sidebarSettings">

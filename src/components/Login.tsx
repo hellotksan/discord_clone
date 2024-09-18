@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { signInWithPopup } from "firebase/auth";
 import React from "react";
 import { auth, provider } from "../firebase";
+import "./Login.css";
 
 const Login = () => {
   const signIn = () => {

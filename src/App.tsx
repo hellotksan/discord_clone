@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useAppSelector, useAppDispatch } from "./app/hooks";
+
 import Chat from "./components/Chat";
 import { ErrorFallback } from "./components/ErrorFallBack";
 import Login from "./components/Login";
 import Sidebar from "./components/Sidebar";
+
 import { login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
 import { Suspense } from "react";
+
+import "./App.css"
 
 function App() {
   const user = useAppSelector((state) => state.user.user);

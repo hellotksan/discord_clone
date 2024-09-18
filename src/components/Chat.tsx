@@ -27,6 +27,7 @@ import {
 } from "firebase/firestore";
 import useFirebase from "../hooks/useFirebase";
 import useSubCollection from "../hooks/useSubCollection";
+import "./Chat.css"
 
 interface Messages {
   timestamp: Timestamp;

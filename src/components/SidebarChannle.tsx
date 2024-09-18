@@ -2,6 +2,7 @@ import { DocumentData } from "firebase/firestore/lite";
 import React, { useEffect } from "react";
 import { useAppDispatch } from "../app/hooks";
 import { setChannelInfo } from "../features/appSlice";
+import "./SidebarChannie.css"
 
 type Props = {
   id: string;
