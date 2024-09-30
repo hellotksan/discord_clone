@@ -6,13 +6,13 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAtlkK7DFAG23nBvQBZubTHK_UxMZzbbxk",
-  authDomain: "discordclone-3cb12.firebaseapp.com",
-  projectId: "discordclone-3cb12",
-  storageBucket: "discordclone-3cb12.appspot.com",
-  messagingSenderId: "629591950605",
-  appId: "1:629591950605:web:6ecf6bf08b2ca31fad9c44",
-  measurementId: "G-GWJH0WJHKW",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
