@@ -1,48 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ChatHeader from "./ChatHeader";
-import {
-  AddCircleOutline,
-  CardGiftcardOutlined,
-  EmojiEmotionsOutlined,
-} from "@mui/icons-material";
-import GifIcon from "@mui/icons-material/Gif";
+import { AddCircleOutline } from "@mui/icons-material";
 import Message from "./Message";
 import { useAppSelector } from "../app/hooks";
 import { db } from "../firebase";
 import {
   addDoc,
   collection,
-  CollectionReference,
   DocumentData,
   DocumentReference,
-  FieldValue,
-  Firestore,
-  onSnapshot,
-  orderBy,
-  query,
-  QueryDocumentSnapshot,
-  QuerySnapshot,
   serverTimestamp,
-  Timestamp,
 } from "firebase/firestore";
-import useFirebase from "../hooks/useFirebase";
 import useSubCollection from "../hooks/useSubCollection";
-import "./Chat.css"
-
-interface Messages {
-  timestamp: Timestamp;
-  message: string;
-  user: {
-    uid: string;
-    photo: string;
-    email: string;
-    displayName: string;
-  };
-}
-
-//51:ディスコードチャット欄にメッセージを表示してみよう
-//52:メッセージを投稿した順番にソートして表示してみよう
-//54:【補足】サブコレクションデータ取得をカスタムフックスで切り出してみよう
+import "./Chat.css";
 
 const Chat = () => {
   const user = useAppSelector((state) => state.user.user);
@@ -51,33 +21,6 @@ const Chat = () => {
 
   const [inputText, setInputText] = useState<string>("");
   const { subDocuments: messages } = useSubCollection("channels", "messages");
-  // const [messages, setMessages] = useState<Messages[]>([]);
-
-  // useEffect(() => {
-  //   let collectionRef = collection(
-  //     db,
-  //     "channels",
-  //     String(channelId),
-  //     "messages"
-  //   );
-
-  //   let collectionRefOrderBy = query(
-  //     collectionRef,
-  //     orderBy("timestamp", "desc")
-  //   );
-
-  //   onSnapshot(collectionRefOrderBy, (snapshot) => {
-  //     let results: Messages[] = [];
-  //     snapshot.docs.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-  //       results.push({
-  //         timestamp: doc.data().timestamp,
-  //         message: doc.data().message,
-  //         user: doc.data().user,
-  //       });
-  //     });
-  //     setMessages(results);
-  //   });
-  // }, [channelId]);
 
   const sendMessage = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -138,12 +81,6 @@ const Chat = () => {
             送信
           </button>
         </form>
-
-        <div className="chatInputIcons">
-          <CardGiftcardOutlined />
-          <GifIcon />
-          <EmojiEmotionsOutlined />
-        </div>
       </div>
     </div>
   );

@@ -1,8 +1,5 @@
-import { ExpandMoreOutlined, Settings } from "@mui/icons-material";
+import { ExpandMoreOutlined } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
-import MicIcon from "@mui/icons-material/Mic";
-import HeadphonesIcon from "@mui/icons-material/Headphones";
-import React, { useEffect, useState } from "react";
 import SidebarChannle from "./SidebarChannle";
 import { useAppSelector } from "../app/hooks";
 import { db, auth } from "../firebase";
@@ -13,14 +10,11 @@ import {
   DocumentReference,
 } from "firebase/firestore";
 import useFirebase from "../hooks/useFirebase";
-import "./Sidebar.css"
+import "./Sidebar.css";
 
 const Sidebar = () => {
   const user = useAppSelector((state) => state.user.user);
-  // const [channels, setChannels] = useState<Channel[]>([]);
-
   const { documents: channels } = useFirebase("channels");
-  console.log(channels);
 
   const addChannel = async () => {
     let channelName = prompt("新しいチャンネルを作成します");
@@ -32,7 +26,6 @@ const Sidebar = () => {
           channelName: channelName,
         }
       );
-      // console.log(docRef);
     }
   };
 
@@ -50,14 +43,13 @@ const Sidebar = () => {
       <div className="sidebarRight">
         <div className="sidebarTop">
           <h3>Discord</h3>
-          <ExpandMoreOutlined />
         </div>
 
         <div className="sidebarChannels">
           <div className="sidebarChannelsHeader">
             <div className="sidebarHeader">
               <ExpandMoreOutlined />
-              <h4>プログラミングチャンネル</h4>
+              <h4>Test Channel</h4>
             </div>
             <AddIcon className="sidebarAddChannel" onClick={addChannel} />
           </div>
@@ -83,12 +75,6 @@ const Sidebar = () => {
                 <h4>{user?.displayName}</h4>
                 <span>#{user?.uid.substring(0, 4)}</span>
               </div>
-            </div>
-
-            <div className="sidebarVoice">
-              <MicIcon />
-              <HeadphonesIcon />
-              <Settings />
             </div>
           </div>
         </div>

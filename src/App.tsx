@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useAppSelector, useAppDispatch } from "./app/hooks";
 
@@ -11,7 +11,7 @@ import { login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
 import { Suspense } from "react";
 
-import "./App.css"
+import "./App.css";
 
 function App() {
   const user = useAppSelector((state) => state.user.user);
@@ -20,7 +20,6 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log(authUser);
       if (authUser) {
         dispatch(
           login({
